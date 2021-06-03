@@ -1,1 +1,2 @@
 # spaceduck-event-register
+.
