@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::goup(['middleware' => ['auh:sanctum', 'verified']], function() {
+Route::group(['middleware' => ['auh:sanctum', 'verified']], function() {
     Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-})
+});
