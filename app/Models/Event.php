@@ -13,4 +13,7 @@ class Event extends Model
     {
         return $this->hasMany(Visitor::class);
     }
+
+    protected $table="events";
+    protected $fillable=['organiser', 'title', 'date_event', 'location', 'description', 'limit_visitors', 'created_at', 'updated_at'];
 }
