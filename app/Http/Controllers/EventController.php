@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -13,7 +14,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        // return view('');
+        return "index called";
     }
 
     /**
@@ -23,7 +25,8 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        // return view('');
+        return "create called";
     }
 
     /**
@@ -34,51 +37,61 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     '' => 'required',
+        //     '' => '',
+        // ]);
+
+        return "store called";
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Event $event)
     {
-        //
+        // return view('');
+        return "show called";
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Event $event)
     {
-        //
+        // return view('');
+        return "edit called";
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Event $event)
     {
-        //
+        // $request->validate([
+        //     '' => '',
+        // ]);
+        return "update called";
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Event $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Event $event)
     {
-        //
+        return "destroy called";
     }
 }

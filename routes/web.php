@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
         return view('dashboard');
     })->name('dashboard');
 });
+
+// Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+//     Route::get('/dashboard', [EventController::class, 'index'])->name('dashboard');
+// });
