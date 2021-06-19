@@ -17,7 +17,7 @@ class CreateEventsTable extends Migration
             $table->id();
             $table->string('organiser');
             $table->string ('title');
-            $table->dateTime('date_event');
+            $table->date('date_event');
             $table->string('location');
             $table->text('description');
             $table->integer('limit_visitors');

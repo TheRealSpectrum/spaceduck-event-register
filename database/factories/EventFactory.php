@@ -26,7 +26,7 @@ class EventFactory extends Factory
         return [
             'organiser' => $this->faker->name(),
             'title' => $this->faker->words(3, true),
-            'date_event' => $this->faker->dateTime(),
+            'date_event' => $this->faker-> date_between(start_date='today', end_date='+30d'),
             'location' => $this->faker->word(),
             'description' => $this->faker->paragraph(),
             'limit_visitors' => $this->faker->numberBetween(5, 100),

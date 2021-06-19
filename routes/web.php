@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Models\Event;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index')->with(['events' => Event::all()]);
+});
+Route::get('/admin', function () {
+    return view('admin');
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
-    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 });
