@@ -2,27 +2,46 @@
     @foreach($events as $event) 
     <!--Card 1-->
     <div class=" w-full lg:max-w-full lg:flex">
-      <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('/mountain.jpg')" title="Mountain">
+      <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover bg-center bg-no-repeat rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('http://localhost/storage/images/{{ $event->image }}')" title="Image">
       </div>
-      <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+      <div class="w-full border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
         <div class="mb-8">
-          <p class="text-sm text-gray-600 flex items-center">
-            <svg class="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <path d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
-            </svg>
-            Members only
-          </p>
           <div class="text-gray-900 font-bold text-xl mb-2">{{ $event->title }}</div>
-          <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
+          <p class="text-gray-700 text-base">{{ $event->description }}</p>
         </div>
         <div class="flex items-center">
-          <img class="w-10 h-10 rounded-full mr-4" class="lazy" data-src="/ben.png" alt="Avatar of Writer">
           <div class="text-sm">
-            <p class="text-gray-900 leading-none">John Smith</p>
+            <p class="text-gray-900 leading-none">{{ $event->organiser }}</p>
             <p class="text-gray-600">{{ $event->date_event }}</p>
           </div>
         </div>
       </div>
     </div>
     @endforeach
+    {{ $events->links() }}
+    <x-jet-dialog-modal wire:model="showEventModal">
+      <x-slot name="title">
+          {{ __('Create a new Event') }}
+      </x-slot>
+
+      <x-slot name="content">
+          <div class="">
+
+          </div>
+
+          <x-jet-input x-ref="plaintextToken" type="text" readonly :value="$plainTextToken"
+              class="mt-4 bg-gray-100 px-4 py-2 rounded font-mono text-sm text-gray-500 w-full"
+              autofocus autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+              @showing-token-modal.window="setTimeout(() => $refs.plaintextToken.select(), 250)"
+          />
+      </x-slot>
+
+      <x-slot name="footer">
+          <x-jet-secondary-button wire:click="$set('displayingToken', false)" wire:loading.attr="disabled">
+              {{ __('Close') }}
+          </x-jet-secondary-button>
+      </x-slot>
+  </x-jet-dialog-modal>
   </div>
+
+  

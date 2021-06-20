@@ -21,6 +21,7 @@ class CreateEventsTable extends Migration
             $table->string('location');
             $table->text('description');
             $table->integer('limit_visitors');
+            $table->string('image');
             $table->timestamps();
         });
     }

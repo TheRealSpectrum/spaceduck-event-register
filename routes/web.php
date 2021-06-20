@@ -18,11 +18,11 @@ Route::get('/', function () {
     return view('index')->with(['events' => Event::all()]);
 });
 Route::get('/admin', function () {
-    return view('admin');
+    return view('admin')->with(['events' => Event::all()]);
 });
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('dashboard')->with(['events' => Event::all()]);
     })->name('dashboard');
 });
