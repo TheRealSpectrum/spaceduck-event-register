@@ -18,10 +18,10 @@
                         <thead class="bg-gray-50">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            id
+                            Title
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            title
+                            Date
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Actions
@@ -30,26 +30,24 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($events as $event)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    {{ $event->id }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    {{ $event->title }}
-                                </td>
-
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <a href="{{ route('events.show', $event->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
-                                    <a href="{{ route('events.edit', $event->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
-                                    <form class="inline block" action="{{ route('events.destroy', $event->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Delete">
-                                    </form>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                {{ $event->title }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                {{ $event->date_event }}
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <a href="{{ route('events.show', $event->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
+                                <a href="{{ route('events.edit', $event->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
+                                <form class="inline block" action="{{ route('events.destroy', $event->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Delete">
+                                </form>
+                            </td>
+                        </tr>
                         @endforeach
-                        <!-- More people... -->
                         </tbody>
                     </table>
                     {{ $events->links() }}
