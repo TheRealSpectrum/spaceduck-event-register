@@ -17,10 +17,10 @@
                             <table class="min-w-full divide-y divide-gray-200 w-full">
                                 <tr class="border-b">
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        ID
+                                        Title
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $event->id }}
+                                        {{ $event->title }}
                                     </td>
                                 </tr>
                                 <tr class="border-b">
@@ -31,13 +31,53 @@
                                         {{ $event->description }}
                                     </td>
                                 </tr>
+                                <tr class="border-b">
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Organiser
+                                    </th>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                                        {{ $event->organiser }}
+                                    </td>
+                                </tr>
+                                <tr class="border-b">
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Event date
+                                    </th>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                                        {{ $event->date_event }}
+                                    </td>
+                                </tr>
+                                <tr class="border-b">
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Location
+                                    </th>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                                        {{ $event->location }}
+                                    </td>
+                                </tr>
+                                <tr class="border-b">
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Visitor limit
+                                    </th>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                                        {{ $event->limit_visitors }}
+                                    </td>
+                                </tr>
+                                <tr class="border-b">
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Creation date
+                                    </th>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                                        {{ $event->created_at }}
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="block mt-8">
-                <a href="{{ route('events.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Back to list</a>
+                <a href="{{}}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Sign-up for event</a>
             </div>
         </div>
     </div>
