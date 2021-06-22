@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
-    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('events', \App\Http\Controllers\EventController::class);
+
+    Route::resource('users', \App\Http\Controllers\UsersController::class);
 });
