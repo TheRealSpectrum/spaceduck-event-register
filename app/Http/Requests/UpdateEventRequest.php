@@ -12,7 +12,25 @@ class UpdateEventRequest extends FormRequest
         return [
             'description' => [
                 'required', 'string',
-            ]
+            ],
+            'organiser' => [
+                'required', 'string',
+            ],
+            'title' => [
+                'required', 'string',
+            ],
+            'location' => [
+                'required', 'string',
+            ],
+            'limit_visitors' => [
+                'required', 'integer',
+            ],
+            // 'image' => [
+            //     'string',
+            // ],
+            'date_event' => [
+                'date_format:Y-m-d', 'required'
+            ],
         ];
     }
 }

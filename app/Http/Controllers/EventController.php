@@ -13,8 +13,6 @@ class EventController extends Controller
 {
     public function index()
     {
-        // return view('dashboard');
-        // return "index called";
         $events = Event::orderBy('id', 'desc')->paginate(20);
 
         return view('events.index', compact('events'));
@@ -22,8 +20,6 @@ class EventController extends Controller
 
     public function create()
     {
-        // return view('');
-        return "create called";
         return view('events.create');
     }
 
@@ -50,7 +46,8 @@ class EventController extends Controller
     {
         $event->update($request->validated());
 
-        return redirect()->route('events.index');
+
+        return redirect()->route('events.index')->with('success', 'Event updated successfully.');
     }
 
     public function destroy(Event $event)
