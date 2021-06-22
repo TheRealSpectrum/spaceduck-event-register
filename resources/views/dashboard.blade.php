@@ -6,8 +6,8 @@
         @csrf
         <div class="shadow overflow-hidden sm:rounded-md">
             <div class="px-4 py-5 bg-white sm:p-6">
-                <label for="organisor" class="block font-medium text-sm text-gray-700">Organiser</label>
-                <input type="text" name="organisor" id="organisor" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                <label for="organiser" class="block font-medium text-sm text-gray-700">Organiser</label>
+                <input type="text" name="organiser" id="organiser" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
                        value="{{ old('organiser', '') }}" />
                 @error('organiser')
                     <p class="text-sm text-red-600">{{ $message }}</p>
