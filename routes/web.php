@@ -15,7 +15,7 @@ use App\Http\Controllers\EventController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 // Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
@@ -27,4 +27,12 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     // Route::get('/dashboard', [EventController::class, 'index'])->name('dashboard');
     Route::resource("dashboard", EventController::class);
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('events', \App\Http\Controllers\EventController::class);
+
+    Route::resource('users', \App\Http\Controllers\UsersController::class);
 });

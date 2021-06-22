@@ -2,41 +2,43 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
+=======
+use App\Http\Requests\StoreEventRequest;
+use App\Http\Requests\UpdateEventRequest;
+>>>>>>> main
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
+<<<<<<< HEAD
         return view('dashboard');
         // return "index called";
+=======
+        $events = Event::orderBy('id', 'desc')->paginate(20);
+
+        return view('events.index', compact('events'));
+>>>>>>> main
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
+<<<<<<< HEAD
         // return view('');
         return "create called";
+=======
+        return view('events.create');
+>>>>>>> main
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(StoreEventRequest $request)
     {
+<<<<<<< HEAD
         // $request->validate([
         //     '' => 'required',
         //     '' => '',
@@ -93,5 +95,37 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         return "destroy called";
+=======
+        Event::create($request->validated());
+
+        return redirect()->route('events.index');
+    }
+
+    public function show(Event $event)
+    {
+
+        return view('events.show', compact('event'));
+    }
+
+    public function edit(Event $event)
+    {
+
+        return view('events.edit', compact('event'));
+    }
+
+    public function update(UpdateEventRequest $request, Event $event)
+    {
+        $event->update($request->validated());
+
+        return redirect()->route('events.index');
+    }
+
+    public function destroy(Event $event)
+    {
+
+        $event->delete();
+
+        return redirect()->route('events.index');
+>>>>>>> main
     }
 }
