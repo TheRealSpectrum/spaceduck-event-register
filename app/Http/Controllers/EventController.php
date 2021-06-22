@@ -14,8 +14,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        // return view('');
-        return "index called";
+        return view('dashboard');
+        // return "index called";
     }
 
     /**
