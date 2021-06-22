@@ -24,9 +24,10 @@ Route::get('/', function () {
 //     })->name('dashboard');
 // });
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function() {
-    // Route::get('/dashboard', [EventController::class, 'index'])->name('dashboard');
-    Route::resource("dashboard", EventController::class);
+// Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+//     // Route::get('/dashboard', [EventController::class, 'index'])->name('dashboard');
+//     Route::resource("dashboard", EventController::class);
+// });
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
