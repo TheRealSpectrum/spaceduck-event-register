@@ -4,13 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Visitor extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
-    public function visitor()
-    {
-        return $this->belongsTo(Event::class);
-    }
+    protected $fillable = [
+
+        'full_name',
+        'email',
+        'notes',
+        
+    ];
 }

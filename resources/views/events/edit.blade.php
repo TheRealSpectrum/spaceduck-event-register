@@ -44,20 +44,20 @@
 
                         {{-- date time --}}
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="date-event" class="block font-medium text-sm text-gray-700">Date Event</label>
-                            <input type="date" name="date_event" id="date-event" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('date_event', $event->date_event) }}" />
-                            @error('date_event')
+                            <label for="event-date" class="block font-medium text-sm text-gray-700">Date Event</label>
+                            <input type="date" name="event_date" id="event-date" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('event_date', $event->event_date) }}" />
+                            @error('event_date')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
 
                         {{-- limit visitors --}}
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="limit-visitors" class="block font-medium text-sm text-gray-700">Visitors Limit</label>
-                            <input type="number" name="limit_visitors" id="limit-visitors" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('limit_visitors', $event->limit_visitors) }}" />
-                            @error('limit_visitors')
+                            <label for="visitor-limit" class="block font-medium text-sm text-gray-700">Visitors Limit</label>
+                            <input type="number" name="visitor_limit" id="visitor-limit" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('visitor_limit', $event->visitor_limit) }}" />
+                            @error('visitor_limit')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>

@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-12 bg-color-indigodye">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="block mb-8">
                 <a href="{{ route('events.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add Event</a>
@@ -18,10 +18,10 @@
                         <thead class="bg-gray-50">
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Title
+                            Event title
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Date
+                            Event date
                             </th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Actions
@@ -35,7 +35,13 @@
                                 {{ $event->title }}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                {{ $event->date_event }}
+                                <?php if ($event->event_date < date("Y-m-d")) {
+                                    echo $event->event_date . '<p class="text-red-600 mb-2 mr-2">EXPIRED</>';
+                                }
+                                else {
+                                    echo $event->event_date;
+                                }
+                                ?>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                 <a href="{{ route('events.show', $event->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
@@ -50,8 +56,8 @@
                         @endforeach
                         </tbody>
                     </table>
-                    {{ $events->links() }}
                     </div>
+                    {{ $events->links() }}
                 </div>
                 </div>
             </div>

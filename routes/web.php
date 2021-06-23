@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Models\Event;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +19,13 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::group(['middleware' => ['auth', 'verified']], function () {
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-Route::group(['middleware' => 'auth'], function () {
     Route::resource('events', \App\Http\Controllers\EventController::class);
 
     Route::resource('users', \App\Http\Controllers\UsersController::class);
+    
+    Route::get('visitors.create', function() {
+        
+    });
 });

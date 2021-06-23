@@ -22,13 +22,10 @@ class StoreEventRequest extends FormRequest
             'location' => [
                 'required', 'string',
             ],
-            'limit_visitors' => [
+            'visitor_limit' => [
                 'required', 'integer',
             ],
-            // 'image' => [
-            //     'string',
-            // ],
-            'date_event' => [
+            'event_date' => [
                 'date_format:Y-m-d', 'required'
             ],
         ];

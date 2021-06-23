@@ -11,15 +11,15 @@ class Event extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'id',
+
         'organiser',
         'title',
-        'date_event',
+        'event_date',
         'location',
         'description',
-        'limit_visitors',
+        'visitor_limit',
+        'visitor_count',
         'created_at',
-        'updated_at',
-        'image'
+        'updated_at'
     ];
 }
