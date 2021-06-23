@@ -5,10 +5,10 @@
         </h2>
     </x-slot>
 
-    <div>
+    <div class="bg-gray-100">
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
-                <a href="{{ route('events.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Back to list</a>
+                <a href="{{ route('events.index') }}" class="bg-indigo-400 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Back to list</a>
             </div>
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -90,17 +90,17 @@
                     </div>
                 </div>
             </div>
-            <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <form method="post" action="">
                         @csrf
                         <div class="shadow overflow-hidden sm:rounded-md">
                             {{-- name --}}
                             <div class="px-4 py-5 bg-white sm:p-6">
-                                <label for="name" class="block font-medium text-sm text-gray-700">Name</label>
-                                <input type="text" name="name" id="name" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                    value="{{ old('name', '') }}" />
-                                @error('name')
+                                <label for="full_name" class="block font-medium text-sm text-gray-700">Name</label>
+                                <input type="text" name="full_name" id="full_name" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                    value="{{ old('full_name', '') }}" />
+                                @error('full_name')
                                     <p class="text-sm text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>
