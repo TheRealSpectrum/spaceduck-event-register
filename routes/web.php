@@ -24,6 +24,8 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::resource('events', \App\Http\Controllers\EventController::class);
 
     Route::resource('users', \App\Http\Controllers\UsersController::class);
+
+    Route::resource('visitors', \App\Http\Controllers\VisitorController::class)->only(['store', 'destroy']);
     
     Route::get('visitors.create', function() {
         
