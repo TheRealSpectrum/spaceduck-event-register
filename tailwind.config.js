@@ -9,16 +9,16 @@ module.exports = {
     ],
 
     theme: {
-        colors: {
-            'sunray': '#edae49',
-            'brickred': '#d1495b',
-            'metallicseaweed': '#00798c',
-            'lapislazuli': '#30638e',
-            'indigodye': '#003d5b',
-        },
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                'sunray': '#edae49',
+                'brickred': '#d1495b',
+                'metallicseaweed': '#00798c',
+                'lapislazuli': '#30638e',
+                'indigodye': '#003d5b',
             },
         },
     },
