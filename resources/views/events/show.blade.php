@@ -94,6 +94,7 @@
                 <div class="mt-5 md:mt-0 md:col-span-2">
                     <form method="post" action="{{route('visitors.store')}}">
                         @csrf
+                        <input type="hidden" name="event_id" value="{{$event->id}}">
                         <div class="shadow overflow-hidden sm:rounded-md">
                             {{-- name --}}
                             <div class="px-4 py-5 bg-white sm:p-6">

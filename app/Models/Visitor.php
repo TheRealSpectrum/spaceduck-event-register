@@ -15,6 +15,7 @@ class Visitor extends Model
         'full_name',
         'email',
         'notes',
+        'event_id'
         
     ];
 }

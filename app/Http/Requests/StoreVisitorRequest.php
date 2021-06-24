@@ -19,6 +19,9 @@ class StoreVisitorRequest extends FormRequest
             'notes' => [
                 'required', 'string',
             ],
+            'event_id' => [
+                'required' , 'integer',
+            ]
         ];
     }
 }

@@ -15,6 +15,7 @@ class CreateVisitorsTable extends Migration
     {
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('event_id')->constrained();
             $table->string('full_name');
             $table->string('email');
             $table->text('notes');
